@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Romantic Charlotte Christmas | Dec 23 - Jan 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fef9f8;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffebee" opacity="0.3" d="M30,30 Q50,10 70,30 T90,30 Q70,50 90,70 T90,90 Q70,70 50,90 T30,90 Q10,70 30,50 T10,30 Q30,10 30,30 Z"/></svg>');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(156, 39, 176, 0.85), rgba(123, 31, 162, 0.9)), url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(156, 39, 176, 0.2);
+        }
+        
+        .header-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .dates {
+            font-size: 1.8rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .heart-divider {
+            font-size: 2rem;
+            color: #ff4081;
+            margin: 10px 0;
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: #9c27b0;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .itinerary-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .day-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(156, 39, 176, 0.15);
+        }
+        
+        .day-header {
+            background: linear-gradient(to right, #9c27b0, #ff4081);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .day-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .day-header .date {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .day-content {
+            padding: 25px;
+        }
+        
+        .activity {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .activity:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .activity-time {
+            display: inline-block;
+            background-color: #fce4ec;
+            color: #9c27b0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .activity-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .activity-description {
+            color: #666;
+        }
+        
+        .romantic-note {
+            background-color: #fff;
+            border-left: 5px solid #ff4081;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.1);
+        }
+        
+        .special-day {
+            border: 2px solid #ff4081;
+            position: relative;
+        }
+        
+        .special-day::before {
+            content: "❤️ Special Day ❤️";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff4081;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .footer-note {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #9c27b0, #ff4081);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 60px;
+        }
+        
+        .footer-note h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-note p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 3rem;
+            }
+            
+            .dates {
+                font-size: 1.4rem;
+            }
+            
+            .itinerary-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Our Charlotte Christmas Romance</h1>
+            <p>A magical holiday season together in the Queen City</p>
+            <div class="heart-divider">
+                <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i>
+            </div>
+            <div class="dates">December 23rd, 2024 - January 1st, 2025</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>My Dearest Love,</h2>
+            <p>I've been counting down the days until I can hold you in my arms again. This Christmas trip to Charlotte is going to be magical, filled with love, laughter, and beautiful memories we'll cherish forever.</p>
+            <p>I've planned a special itinerary for our time together, blending holiday cheer, romantic moments, and new adventures in your beautiful city.</p>
+            <p>Every moment with you is precious, and I can't wait to celebrate the holidays by your side.</p>
+            <p>With all my love,</p>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #9c27b0; margin-top: 10px;">Always Yours</p>
+        </section>
+        
+        <div class="itinerary-container" id="itinerary">
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 1</h3>
+                    <div class="date">Monday, December 23</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Arrival & Warm Welcome</h4>
+                        <p class="activity-description">I finally arrive in Charlotte! Airport pickup and hugs that I've been dreaming of for weeks.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Cozy Home Dinner</h4>
+                        <p class="activity-description">A homemade dinner together, just the two of us, catching up on everything.</p>
+                    </div>
+                    <div class="romantic-note">
+                        The moment I've been waiting for - seeing your smile in person again after all this time apart.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 2 - Christmas Eve -->
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 2: Christmas Eve</h3>
+                    <div class="date">Tuesday, December 24</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title">Christmas Market Adventure</h4>
+                        <p class="activity-description">Visit the Christmas Village at Truist Field for holiday shopping and festive treats.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Romantic Walk</h4>
+                        <p class="activity-description">Stroll through the beautifully decorated Fourth Ward neighborhood.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Candlelight Christmas Eve</h4>
+                        <p class="activity-description">Traditional Christmas Eve dinner followed by exchanging our first gifts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 - Christmas Day -->
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 3: Christmas Day</h3>
+                    <div class="date">Wednesday, December 25</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title">Christmas Morning Together</h4>
+                        <p class="activity-description">Slow morning opening presents, Christmas music, and enjoying our first Christmas together.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Festive Feast</h4>
+                        <p class="activity-description">Prepare and enjoy a special Christmas dinner together.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Christmas Movies & Cuddles</h4>
+                        <p class="activity-description">Cozy up with holiday classics, hot cocoa, and each other.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 4</h3>
+                    <div class="date">Thursday, December 26</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">All Day</span>
+                        <h4 class="activity-title">Romantic Getaway Day</h4>
+                        <p class="activity-description">Day trip to the nearby mountains or a visit to the Daniel Stowe Botanical Garden's holiday lights.</p>
+                    </div>
+                    <div class="romantic-note">
+                        A day just for us, away from the hustle, to focus on what matters most - our connection.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 5</h3>
+                    <div class="date">Friday, December 27</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title">Discovery Place Science</h4>
+                        <p class="activity-description">Explore the science museum together - because everything is more fun with you.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Romantic Dinner Date</h4>
+                        <p class="activity-description">Dress up for a special dinner at a nice Charlotte restaurant (your choice!).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 6</h3>
+                    <div class="date">Saturday, December 28</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">SouthPark Mall Shopping</h4>
+                        <p class="activity-description">Post-Christmas sales and window shopping, finding little treasures together.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Comedy Night</h4>
+                        <p class="activity-description">Laugh the night away at the Charlotte Comedy Theater.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 7</h3>
+                    <div class="date">Sunday, December 29</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">All Day</span>
+                        <h4 class="activity-title">Relax & Recharge Day</h4>
+                        <p class="activity-description">A lazy day at home, cooking together, watching movies, and just enjoying each other's company.</p>
+                    </div>
+                    <div class="romantic-note">
+                        Sometimes the most romantic days are the quiet ones with no plans except being together.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 8 - New Year's Eve -->
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 8: New Year's Eve</h3>
+                    <div class="date">Tuesday, December 31</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">NYE Celebration</h4>
+                        <p class="activity-description">Dress up for a glamorous New Year's Eve celebration - either at a party or creating our own at home.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midnight</span>
+                        <h4 class="activity-title">First Kiss of the New Year</h4>
+                        <p class="activity-description">Welcoming 2025 together with a kiss and dreams of our future.</p>
+                    </div>
+                    <div class="romantic-note">
+                        Starting a new year with you by my side is all I could ever wish for.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 9 - New Year's Day -->
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 9: New Year's Day</h3>
+                    <div class="date">Wednesday, January 1</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title">Brunch & Reflections</h4>
+                        <p class="activity-description">Leisurely brunch while sharing our hopes and dreams for the new year.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Farewell Moments</h4>
+                        <p class="activity-description">Packing up and savoring our last few hours together before my flight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        <div class="container">
+            <h3>Every Moment With You Is Magic</h3>
+            <p>This trip is more than just a holiday visit - it's a celebration of us, our love, and the beautiful future we're building together. I can't wait to make these memories with you.</p>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown to December 23, 2024
+        function updateCountdown() {
+            const tripDate = new Date('December 23, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = tripDate - now;
+            
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').innerHTML = days;
+                document.getElementById('hours').innerHTML = hours;
+                document.getElementById('minutes').innerHTML = minutes;
+                document.getElementById('seconds').innerHTML = seconds;
+            } else {
+                document.getElementById('countdown').innerHTML = "<h3>We're together in Charlotte now! ❤️</h3>";
+            }
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Add animation to day cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply animation to all day cards
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        // Add a subtle heartbeat animation to the hearts
+        const hearts = document.querySelectorAll('.fa-heart');
+        hearts.forEach((heart, index) => {
+            heart.style.animation = `heartbeat 1.5s ease infinite ${index * 0.5}s`;
+        });
+        
+        // Add CSS for heartbeat animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes heartbeat {
+                0% { transform: scale(1); }
+                5% { transform: scale(1.1); }
+                10% { transform: scale(1); }
+                15% { transform: scale(1.1); }
+                20% { transform: scale(1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
