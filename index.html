@@ -263,10 +263,51 @@
             .countdown {
                 flex-wrap: wrap;
             }
-        }
+.snowfall {
+    position: fixed; /* Keep it locked to the screen viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to go through to the content underneath */
+    z-index: 99; /* Crucial: ensures it sits above the background but below the header/cards */
+    overflow: hidden;
+}
+
+.snowfall::before, .snowfall::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use transparent radial gradients to create the snowflake shapes */
+    background-image: 
+        radial-gradient(4px 4px at 20px 20px, white, transparent),
+        radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(3px 3px at 80px 10px, white, transparent),
+        radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(4px 4px at 150px 80px, white, transparent);
+    background-size: 200px 200px; /* How dense the pattern is */
+    animation: snowfall 15s linear infinite; /* Animation speed and style */
+}
+
+.snowfall::after {
+    /* Second layer of snow to make it look deeper and vary the speed */
+    margin-left: -50%;
+    background-size: 250px 250px;
+    opacity: 0.5;
+    animation: snowfall 20s linear infinite reverse; /* Slower and opposite direction */
+}
+
+@keyframes snowfall {
+    0% { transform: translate3d(0, -100%, 0); } /* Start above the screen */
+    100% { transform: translate3d(0, 100%, 0); } /* End below the screen */
+}   
     </style>
 </head>
-<body>
+<body> 
+    <div class="snowfall"></div>
     <header>
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
@@ -581,6 +622,7 @@
 </body>
 
 </html>
+
 
 
 
