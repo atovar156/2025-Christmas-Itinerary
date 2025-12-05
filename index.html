@@ -188,3 +188,592 @@
             margin-top: 20px;
             border-radius: 0 10px 10px 0;
             font-style: italic;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1); 
+        }
+        
+        .special-day {
+            border: 2px solid #F44336; 
+            position: relative;
+        }
+        
+        .special-day::before {
+            content: "❤️ Special Day ❤️";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #F44336; 
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .footer-note {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #D32F2F, #F44336);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 60px;
+        }
+        
+        .footer-note h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-note p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .countdown-timer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 3rem;
+            }
+            
+            .dates {
+                font-size: 1.4rem;
+            }
+            
+            .itinerary-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+        .snowfall {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 9999; 
+            overflow: hidden;
+        }
+
+        .snowfall::before, .snowfall::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(4px 4px at 20px 20px, white, transparent),
+                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 80px 10px, white, transparent),
+                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(4px 4px at 150px 80px, white, transparent);
+            background-size: 200px 200px; 
+            animation: snowfall 15s linear infinite; 
+        }
+
+        .snowfall::after {
+            margin-left: -50%;
+            background-size: 250px 250px;
+            opacity: 0.5;
+            animation: snowfall 20s linear infinite; 
+        }
+
+        @keyframes snowfall {
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="snowfall"></div>
+    <header>
+        <div class="header-content">
+            <h1>Christmas In Charlotte</h1>
+            <p>All I Want for Christmas Is You</p>
+            <div class="divider">
+                <span class="heart-divider-red">&hearts;</span> 
+                <span class="heart-divider-green">&hearts;</span> 
+                <span class="heart-divider-red">&hearts;</span> 
+            </div>
+            <div class="dates">December 23rd, 2025 - January 4th, 2026</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>My beautiful Queen,</h2>
+            <p>I've been so excited to see you again for the holidays. This Christmas trip is going feel so much better with you.</p>
+            <p>I've planned a special itinerary for our time together, and hopefully we can stick to it.</p>
+            <p>Every moment with you is precious, and I can't wait to celebrate the holidays by your side.</p>
+            <p>With all my love,</p>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #95190C; margin-top: 10px;">Always Yours</p>
+        </section>
+        <div class="itinerary-container" id="itinerary">
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 1: Arrival</h3>
+                    <div class="date">Tuesday, December 23</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="romantic-note">
+                        The moment I've been waiting for - seeing your smile in person again after all this time apart.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 2: Christmas Eve</h3>
+                    <div class="date">Wednesday, December 24</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 3: Christmas Day</h3>
+                    <div class="date">Thursday, December 25</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 4</h3>
+                    <div class="date">Friday, December 26</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="romantic-note">
+                        A day just for us, away from the hustle, to focus on what matters most - our connection.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 5</h3>
+                    <div class="date">Saturday, December 27</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 6</h3>
+                    <div class="date">Sunday, December 28</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 7</h3>
+                    <div class="date">Monday, December 29</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="romantic-note">
+                        Sometimes the most romantic days are the quiet ones with no plans except being together.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 8</h3>
+                    <div class="date">Tuesday, December 30</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card special-day">
+                <div class="day-header">
+                    <h3>Day 9: New Year's Eve</h3>
+                    <div class="date">Wednesday, December 31</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midnight</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="romantic-note">
+                        Starting a new year with you by my side is all I could ever wish for.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 10: New Year's Day</h3>
+                    <div class="date">Thursday, January 1</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 11</h3>
+                    <div class="date">Friday, January 2</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 12</h3>
+                    <div class="date">Saturday, January 3</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="romantic-note">
+                        This extra time is a gift. Let's make this day whatever we feel like doing, together.
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3>Day 13: Farewell</h3>
+                    <div class="date">Sunday, January 4</div>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        <div class="container">
+            <h3>Every Moment With You Is Magic</h3>
+            <p>This trip is more than just a holiday visit - it's a celebration of us, our love, and the beautiful future we're building together. I can't wait to make these memories with you.</p>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // COUNTDOWN FIX: Set to next Christmas (2025)
+        function updateCountdown() {
+            const tripDate = new Date('December 23, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeRemaining = tripDate - now;
+            
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            const countdownContainer = document.getElementById('countdown');
+
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                
+                if (daysEl) daysEl.innerHTML = days;
+                if (hoursEl) hoursEl.innerHTML = hours;
+                if (minutesEl) minutesEl.innerHTML = minutes;
+                if (secondsEl) secondsEl.innerHTML = seconds;
+                
+            } else {
+                if (countdownContainer) {
+                    countdownContainer.innerHTML = "<h3>We're together in Charlotte now! ❤️</h3>";
+                }
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); 
+        
+        // Add animation to day cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply animation to all day cards
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        document.querySelectorAll('.heart-divider-red, .heart-divider-green').forEach((heart, index) => {
+            heart.style.animation = `heartbeat 1.5s ease infinite ${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>
