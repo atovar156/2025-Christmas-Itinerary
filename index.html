@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas In Charlotte | Dec 23 - Jan 1</title>
+    <title>Christmas In Charlotte | Dec 23 - Jan 4</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -28,10 +28,9 @@
         }
         
         header {
-            /* Kept the Icy Blue for the background, but adjusted opacity slightly */
             background: linear-gradient(rgba(13, 71, 161, 0.7), rgba(66, 165, 245, 0.75)), url('https://github.com/atovar156/2025-Christmas-Itinerary/blob/main/Igloo.jpg?raw=true');
             background-size: cover;
-            background-position: center top; /* FIX: Shows the top of the igloo */
+            background-position: center top; 
             color: white;
             text-align: center;
             padding: 80px 20px;
@@ -123,12 +122,10 @@
         
         .day-card:hover {
             transform: translateY(-10px);
-            /* UPDATE: Changed box-shadow color to match Red theme */
             box-shadow: 0 15px 35px rgba(244, 67, 54, 0.15); 
         }
         
         .day-header {
-            /* UPDATE: Changed gradient from Purple/Pink to Green/Dark Green */
             background: linear-gradient(to right, #4CAF50, #388E3C);
             color: white;
             padding: 20px;
@@ -164,7 +161,6 @@
         
         .activity-time {
             display: inline-block;
-            /* UPDATE: Changed background color to Light Red and text color to Red */
             background-color: #ffebee; 
             color: #F44336; /* Red accent */
             padding: 5px 15px;
@@ -187,18 +183,15 @@
         
         .romantic-note {
             background-color: #fff;
-            /* UPDATE: Changed border color from Pink to Green */
             border-left: 5px solid #4CAF50; 
             padding: 20px;
             margin-top: 20px;
             border-radius: 0 10px 10px 0;
             font-style: italic;
-            /* Update box shadow color */
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1); 
         }
         
         .special-day {
-            /* UPDATE: Changed border color from Pink to Red */
             border: 2px solid #F44336; 
             position: relative;
         }
@@ -209,7 +202,6 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            /* UPDATE: Changed background color from Pink to Red */
             background-color: #F44336; 
             color: white;
             padding: 5px 20px;
@@ -222,7 +214,6 @@
         .footer-note {
             text-align: center;
             padding: 40px 20px;
-            /* UPDATE: Changed gradient from Purple/Pink to Red/Dark Red */
             background: linear-gradient(to right, #D32F2F, #F44336);
             color: white;
             border-radius: 20px 20px 0 0;
@@ -247,7 +238,6 @@
             margin-top: 20px;
         }
 
-        /* Countdown styling moved back to use original class structure for cleaner code */
         .countdown-item {
             background-color: rgba(255, 255, 255, 0.2);
             padding: 15px;
@@ -286,15 +276,15 @@
             }
         }
 
-        /* --- SNOWFALL EFFECT CSS (MOVED OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
         .snowfall {
-            position: fixed; /* Keep it locked to the screen viewport */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Allows clicks to go through to the content underneath */
-            z-index: 9999; /* FIX: Set very high z-index for visibility */
+            pointer-events: none; 
+            z-index: 9999; 
             overflow: hidden;
         }
 
@@ -305,32 +295,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Use transparent radial gradients to create the snowflake shapes */
             background-image: 
                 radial-gradient(4px 4px at 20px 20px, white, transparent),
                 radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
                 radial-gradient(3px 3px at 80px 10px, white, transparent),
                 radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
                 radial-gradient(4px 4px at 150px 80px, white, transparent);
-            background-size: 200px 200px; /* How dense the pattern is */
-            animation: snowfall 15s linear infinite; /* Animation speed and style */
+            background-size: 200px 200px; 
+            animation: snowfall 15s linear infinite; 
         }
 
         .snowfall::after {
-            /* Second layer of snow to make it look deeper and vary the speed */
             margin-left: -50%;
             background-size: 250px 250px;
             opacity: 0.5;
-            /* FIX: Removed 'reverse' so all snow falls down */
             animation: snowfall 20s linear infinite; 
         }
 
         @keyframes snowfall {
-            0% { transform: translate3d(0, -100%, 0); } /* Start above the screen */
-            100% { transform: translate3d(0, 100%, 0); } /* End below the screen */
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
         }
 
-        /* HEARTBEAT KEYFRAMES (Moved out of JS for cleaner code) */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -347,21 +333,20 @@
     <header>
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
-            <p>All I Want for Christmas Isss Youuuuu</p>
+            <p>All I Want for Christmas Is You</p>
             <div class="divider">
                 <span class="heart-divider-red">&hearts;</span> 
                 <span class="heart-divider-green">&hearts;</span> 
                 <span class="heart-divider-red">&hearts;</span> 
             </div>
-            <p id="countdown" class="countdown-timer">Loading countdown...</p>
-            <div class="dates">December 23rd, 2025 - January 1st, 2026</div>
+            <div class="dates">December 23rd, 2025 - January 4th, 2026</div>
         </div>
     </header>
     
     <div class="container">
         <section class="intro">
             <h2>My beautiful Queen,</h2>
-            <p>I've been so exicted to see you again for the holidays. This Christmas trip is going feel so much better with you.</p>
+            <p>I've been so excited to see you again for the holidays. This Christmas trip is going feel so much better with you.</p>
             <p>I've planned a special itinerary for our time together, and hopefully we can stick to it.</p>
             <p>Every moment with you is precious, and I can't wait to celebrate the holidays by your side.</p>
             <p>With all my love,</p>
@@ -370,22 +355,27 @@
         <div class="itinerary-container" id="itinerary">
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 1</h3>
-                    <div class="date">Monday, December 23</div>
+                    <h3>Day 1: Arrival</h3>
+                    <div class="date">Tuesday, December 23</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
                         <h4 class="activity-title">Land at Airport</h4>
-                        <p class="activity-description">Arrve at Charlotte aiport and wait for pick up</p>
+                        <p class="activity-description">Arrive at Charlotte airport and wait for pick up.</p>
                     </div>
                     <div class="activity">
-                        <span class="activity-time"></span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Unpack & Relax</h4>
+                        <p class="activity-description">Settle in and get cozy for the trip!</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Home Cooking & Movie</h4>
+                        <p class="activity-description">A simple, romantic dinner cooked together at home.</p>
                     </div>
                     <div class="romantic-note">
-                        
+                        The moment I've been waiting for - seeing your smile in person again after all this time apart.
                     </div>
                 </div>
             </div>
@@ -393,23 +383,23 @@
             <div class="day-card special-day">
                 <div class="day-header">
                     <h3>Day 2: Christmas Eve</h3>
-                    <div class="date">Tuesday, December 24</div>
+                    <div class="date">Wednesday, December 24</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Christmas Market Adventure</h4>
+                        <p class="activity-description">Visit the Christmas Village at Truist Field for holiday shopping and festive treats.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Romantic Walk</h4>
+                        <p class="activity-description">Stroll through the beautifully decorated Fourth Ward neighborhood.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Evening</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Candlelight Christmas Eve Dinner</h4>
+                        <p class="activity-description">Traditional Christmas Eve dinner followed by exchanging our first gifts.</p>
                     </div>
                 </div>
             </div>
@@ -417,23 +407,23 @@
             <div class="day-card special-day">
                 <div class="day-header">
                     <h3>Day 3: Christmas Day</h3>
-                    <div class="date">Wednesday, December 25</div>
+                    <div class="date">Thursday, December 25</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
                         <h4 class="activity-title">Christmas Morning Together</h4>
-                        <p class="activity-description"></p>
+                        <p class="activity-description">Slow morning opening presents, Christmas music, and enjoying our first Christmas together.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Festive Feast</h4>
+                        <p class="activity-description">Prepare and enjoy a special Christmas dinner together.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Evening</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Christmas Movies & Cuddles</h4>
+                        <p class="activity-description">Cozy up with holiday classics, hot cocoa, and each other.</p>
                     </div>
                 </div>
             </div>
@@ -441,16 +431,26 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3>Day 4</h3>
-                    <div class="date">Thursday, December 26</div>
+                    <div class="date">Friday, December 26</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
-                        <span class="activity-time"</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title">Late Wake Up & Coffee</h4>
+                        <p class="activity-description">Enjoy a slow morning after the busy holiday.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Romantic Getaway Drive</h4>
+                        <p class="activity-description">Scenic drive towards the mountains or lake for a relaxing view.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Holiday Lights Drive</h4>
+                        <p class="activity-description">Visit the Daniel Stowe Botanical Garden's holiday lights.</p>
                     </div>
                     <div class="romantic-note">
-                        
+                        A day just for us, away from the hustle, to focus on what matters most - our connection.
                     </div>
                 </div>
             </div>
@@ -458,18 +458,23 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3>Day 5</h3>
-                    <div class="date">Friday, December 27</div>
+                    <div class="date">Saturday, December 27</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Discovery Place Science</h4>
+                        <p class="activity-description">Explore the science museum together - because everything is more fun with you.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title">Relaxing Spa/Massage</h4>
+                        <p class="activity-description">Time to relax and unwind with a couple's treatment.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Evening</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description">.</p>
+                        <h4 class="activity-title">Romantic Dinner Date</h4>
+                        <p class="activity-description">Dress up for a special dinner at a nice Charlotte restaurant (your choice!).</p>
                     </div>
                 </div>
             </div>
@@ -477,174 +482,23 @@
             <div class="day-card">
                 <div class="day-header">
                     <h3>Day 6</h3>
-                    <div class="date">Saturday, December 28</div>
-                </div>
-                <div class="day-content">
-                    <div class="activity">
-                        <span class="activity-time">Afternoon</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
-                    </div>
-                    <div class="activity">
-                        <span class="activity-time">Evening</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description">.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <h3>Day 7</h3>
-                    <div class="date">Sunday, December 29</div>
-                </div>
-                <div class="day-content">
-                    <div class="activity">
-                        <span class="activity-time">All Day</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
-                    </div>
-                    <div class="romantic-note">
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="day-card special-day">
-                <div class="day-header">
-                    <h3>Day 8: New Year's Eve</h3>
-                    <div class="date">Tuesday, December 31</div>
-                </div>
-                <div class="day-content">
-                    <div class="activity">
-                        <span class="activity-time">Evening</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
-                    </div>
-                    <div class="activity">
-                        <span class="activity-time">Midnight</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
-                    </div>
-                    <div class="romantic-note">
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="day-card">
-                <div class="day-header">
-                    <h3>Day 9: New Year's Day</h3>
-                    <div class="date">Wednesday, January 1</div>
+                    <div class="date">Sunday, December 28</div>
                 </div>
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">Sleep In & Breakfast in Bed</h4>
+                        <p class="activity-description">Enjoy a lazy start to the day.</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
-                        <h4 class="activity-title"></h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title">SouthPark Mall Shopping</h4>
+                        <p class="activity-description">Post-Christmas sales and window shopping, finding little treasures together.</p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
+                        <h4 class="activity-title">Comedy Night</h4>
+                        <p class="activity-description">Laugh the night away at the Charlotte Comedy Theater.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <div class="footer-note">
-        <div class="container">
-            <h3>Every Moment With You Is Magic</h3>
-            <p>This trip is more than just a holiday visit - it's a celebration of us, our love, and the beautiful future we're building together. I can't wait to make these memories with you.</p>
-            
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">0</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">0</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">0</span>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">0</span>
-                    <span class="countdown-label">Seconds</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Countdown to December 23, 2024
-        function updateCountdown() {
-            const tripDate = new Date('December 23, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeRemaining = tripDate - now;
-            
-            // Get the element IDs
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const countdownContainer = document.getElementById('countdown');
-
-            if (timeRemaining > 0) {
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                
-                // Ensure elements exist before trying to update them
-                if (daysEl) daysEl.innerHTML = days;
-                if (hoursEl) hoursEl.innerHTML = hours;
-                if (minutesEl) minutesEl.innerHTML = minutes;
-                if (secondsEl) secondsEl.innerHTML = seconds;
-                
-            } else {
-                if (countdownContainer) {
-                    countdownContainer.innerHTML = "<h3>We're together in Charlotte now! ❤️</h3>";
-                }
-            }
-        }
-        
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
-        
-        // Add animation to day cards when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Apply animation to all day cards
-        document.querySelectorAll('.day-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
-        });
-        
-        // No need for separate heartbeat JS now that keyframes are in the CSS
-        document.querySelectorAll('.heart-divider-red, .heart-divider-green').forEach((heart, index) => {
-            heart.style.animation = `heartbeat 1.5s ease infinite ${index * 0.5}s`;
-        });
-    </script>
-</body>
-</html>
-
-
