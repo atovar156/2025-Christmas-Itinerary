@@ -64,12 +64,22 @@
             backdrop-filter: blur(5px);
         }
         
-        .heart-divider {
-            font-size: 2rem;
-            color: #ff4081;
-            margin: 10px 0;
-        }
-        
+       .heart-divider-red {
+    font-size: 2rem;
+    color: #F44336; /* Red */
+    margin: 0 5px;
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* --- GREEN MIDDLE HEART --- */
+.heart-divider-green {
+    font-size: 2rem;
+    color: #4CAF50; /* Green */
+    margin: 0 5px;
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+}
         .intro {
             text-align: center;
             max-width: 800px;
@@ -270,7 +280,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none; /* Allows clicks to go through to the content underneath */
-    z-index: 99; /* Crucial: ensures it sits above the background but below the header/cards */
+    z-index: 9999; /* Crucial: ensures it sits above the background but below the header/cards */
     overflow: hidden;
 }
 
@@ -297,7 +307,7 @@
     margin-left: -50%;
     background-size: 250px 250px;
     opacity: 0.5;
-    animation: snowfall 20s linear infinite reverse; /* Slower and opposite direction */
+    animation: snowfall 20s linear infinite; /* Slower and opposite direction */
 }
 
 @keyframes snowfall {
@@ -312,8 +322,8 @@
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
             <p>All I Want for Christmas Is You</p>
-            <div class="heart-divider">
-                <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i>
+           <div class="divider">
+    <span class="heart-divider-red">&hearts;</span>  <span class="heart-divider-green">&hearts;</span> <span class="heart-divider-red">&hearts;</span>  </div>
             </div>
             <div class="dates">December 23rd, 2024 - January 1st, 2025</div>
         </div>
@@ -328,7 +338,6 @@
             <p>With all my love,</p>
             <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #95190C; margin-top: 10px;">Always Yours</p>
         </section>
-        
         <div class="itinerary-container" id="itinerary">
             <!-- Day 1 -->
             <div class="day-card">
@@ -343,9 +352,9 @@
                         <p class="activity-description">Arrve at Charlotte aiport and wait for pick up</p>
                     </div>
                     <div class="activity">
-                        <span class="activity-time">Evening</span>
-                        <h4 class="activity-title">Cozy Home Dinner</h4>
-                        <p class="activity-description">A homemade dinner together, just the two of us, catching up on everything.</p>
+                        <span class="activity-time"></span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
                     </div>
                     <div class="romantic-note">
                         The moment I've been waiting for - seeing your smile in person again after all this time apart.
@@ -622,6 +631,7 @@
 </body>
 
 </html>
+
 
 
 
