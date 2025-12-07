@@ -290,80 +290,48 @@
                 padding: 10px;
             }
         }
-/* --- SNOWFALL EFFECT CSS: FIXED --- */
-        /* Base container (stays fixed over the page) */
-        .snowfall {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100vw; 
-            height: 100vh; 
-            pointer-events: none; 
-            z-index: 99999; 
-            overflow: hidden;
-        }
 
-        /* Base styles for all snow layers */
-        .snowfall::before, .snowfall::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* CRITICAL FIX: Ensures the snow layer doesn't scroll with the page content */
-            background-attachment: fixed;
-            background-repeat: repeat; /* Ensures the snow pattern loops */
-        }
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+        .snowfall {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 9999; 
+            overflow: hidden;
+        }
 
-        /* ❄️ LAYER 1: Foreground, larger, slower flakes (uses 'snowfall' keyframes) */
-        .snowfall::before {
-            background-image: 
-                radial-gradient(4px 4px at 20px 20px, white, transparent),
-                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(3px 3px at 80px 10px, white, transparent),
-                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(4px 4px at 150px 80px, white, transparent);
-                
-            background-size: 200px 200px;
-            animation: snowfall 15s linear infinite; /* Slower animation */          
-            opacity: 0.8;
-        }
+        .snowfall::before, .snowfall::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(4px 4px at 20px 20px, white, transparent),
+                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 80px 10px, white, transparent),
+                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(4px 4px at 150px 80px, white, transparent);
+            background-size: 200px 200px; 
+            animation: snowfall 15s linear infinite; 
+        }
 
-        /* 🌨️ LAYER 2: Background, smaller, faster flakes (uses 'snowfall-fast' keyframes) */
-        .snowfall::after {
-            background-image: 
-                radial-gradient(1px 1px at 10% 20%, white, transparent),
-                radial-gradient(1px 1px at 45% 85%, white, transparent),
-                radial-gradient(1px 1px at 70% 5%, white, transparent),
-                radial-gradient(1px 1px at 95% 30%, white, transparent),
-                radial-gradient(2px 2px at 30% 60%, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(2px 2px at 80% 45%, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(3px 3px at 5% 90%, rgba(255, 255, 255, 0.7), transparent),
-                radial-gradient(3px 3px at 65% 75%, rgba(255, 255, 255, 0.7), transparent);
-                
-            background-size: 100px 100px;
-            animation: snowfall-fast 10s linear infinite; /* Faster animation */
-            opacity: 0.5;
-        }
+        .snowfall::after {
+            margin-left: -50%;
+            background-size: 250px 250px;
+            opacity: 0.5;
+            animation: snowfall 20s linear infinite; 
+        }
 
-        /* ⚙️ KEYFRAME FIX: Use background-position for seamless loop with drift */
+        @keyframes snowfall {
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
+        }
 
-        /* Layer 1 Keyframes (Slower, Drifts Right) */
-        @keyframes snowfall {
-            0% { background-position: 0 0; } 
-            /* Animates 2000px down and 200px to the right for drift, creating a non-vertical path */
-            100% { background-position: 200px 2000px; } 
-        }
-
-        /* Layer 2 Keyframes (Faster, Drifts Left, Starts offset) */
-        @keyframes snowfall-fast {
-            /* Start position offset by 50% horizontally for "random" initial look */
-            0% { background-position: 50% 0; } 
-            /* Animates 1500px down and 100px to the left for a counter-drift effect */
-            100% { background-position: -100px 1500px; } 
-        }
-        
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -811,8 +779,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
