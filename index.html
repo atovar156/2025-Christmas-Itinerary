@@ -287,10 +287,15 @@
             
             .countdown-item {
                 min-width: 60px;
-                padding: 10px;
+        
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1        padding: 10px;
             }
         }
-
         /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
         .snowfall {
             position: fixed; 
@@ -333,7 +338,7 @@
                 radial-gradient(2px 2px at 110px 50px, white, transparent),
             background-size: 150px 150px; /* medium pattern size*/
             animation: snowfall 16s linear infinite; /* medium animation size*/
-            margin-left: -50px; /* radnom horizontal offset to break pattern */
+            margin-left: -50px; /* random horizontal offset to break pattern */
             opacity: 0.8;
         }
 
@@ -349,7 +354,7 @@
                 radial-gradient(4px 4px at 150px 100px, white, transparent),
             background-size: 150px 150px; /* Large pattern size */
             animation: snowfall 16s linear infinite; /* Large animation size */
-            margin-left: 100px; /* radnom horizontal offset */
+            margin-left: 100px; /* random horizontal offset */
             opacity: 0.4;
         }    
         
@@ -360,11 +365,11 @@
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            5% { transform: scale(1.1); }
-            10% { transform: scale(1); }
-            15% { transform: scale(1.1); }
-            20% { transform: scale(1); }
-            100% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
         }
         
     </style>
@@ -382,7 +387,7 @@
                 <span class="heart-divider-green"><i class="fa-solid fa-heart"></i></span> 
                 <span class="heart-divider-red"><i class="fa-solid fa-heart"></i></span> 
             </div>
-            <div class="dates">December 23rd, 2025 - January 4th, 2026</div>
+            <div class="dates">December 24th, 2025 - January 4th, 2026</div>
         </div>
     </header>
     
@@ -405,8 +410,8 @@
                     <div class="activity">
                         <span class="activity-time">Morning</span>
                         <h4 class="activity-title">Land at CLT: 10:30am</h4>
-                        <p class="activity-description">Wait for pick up
-                                                        Get food after </p>
+                        <p class="activity-description">Wait for pick up</p>
+                        <p class="activity-description">Get some food</p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
@@ -808,6 +813,7 @@
     </script>
 </body>
 </html>
+
 
 
 
