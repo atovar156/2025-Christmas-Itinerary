@@ -304,7 +304,7 @@
         }
         
         /* Single layer using ::before */
-        .snowfall::before {
+        .snowfall::before, .snowfall::after {
             content: "";
             position: absolute;
             top: 0;
@@ -335,17 +335,24 @@
             background-attachment: fixed;
             
             /* Animation: Only vertical fall, but at a steady pace */
-            animation: snowfall 14s linear infinite; 
+            animation: snowfall 15s linear infinite; 
+           
             opacity: 0.8;
+            
+        }
+        .snowfall::after {
+            margin-left: -50%;
+            background-size: 250px 250px;
+            opacity: 0.5;
+            animation: snowfall 20s linear infinite; 
         }
         
         /* Defines the vertical falling motion */     
         @keyframes snowfall {
-            /* Start the background pattern 100vh above the viewport */
-            0% { background-position: 0 0; } 
-            /* Move the background pattern 100vh down, covering the viewport */
-            100% { background-position: 0 200vh; }
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
         }
+        
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -794,6 +801,7 @@
     </script>
 </body>
 </html>
+
 
 
 
