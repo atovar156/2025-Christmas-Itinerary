@@ -303,7 +303,7 @@
             overflow: hidden;
         }
 
-        .snowfall::before, .snowfall::after {
+        .snowfall::before {
             content: "";
             position: absolute;
             top: 0;
@@ -311,22 +311,49 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(4px 4px at 20px 20px, white, transparent),
-                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(3px 3px at 80px 10px, white, transparent),
-                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(4px 4px at 150px 80px, white, transparent);
-            background-size: 200px 200px; 
-            animation: snowfall 15s linear infinite; 
+                radial-gradient(1px 1px at 15px 15px, white, transparent),
+                radial-gradient(2px 2px at 30px 45px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 60px 5px, white, transparent),
+                radial-gradient(2px 2px at 85px 35px, rgba(255, 255, 255, 0.9), transparent),
+            background-size: 100px 100px; 
+            animation: snowfall 12s linear infinite;
+            opacity: 0.8;
         }
-
+            /* Layer 2: Medium flakes, medium speed, different offset */
         .snowfall::after {
-            margin-left: -50%;
-            background-size: 250px 250px;
-            opacity: 0.5;
-            animation: snowfall 20s linear infinite; 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 10px 60px, white, transparent),
+                radial-gradient(3px 3px at 75px 20px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 110px 50px, white, transparent),
+            background-size: 150px 150px; /* medium pattern size*/
+            animation: snowfall 16s linear infinite; /* medium animation size*/
+            marigin-left: -50px; /* radnom horizontal offset to break pattern */
+            opacity: 0.8;
         }
 
+        .snowfall-layer-3 { /* new element for 3rd layer*/
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                /* more varied positions and sizes */
+                radial-gradient(3px 3px at 50px 50px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(4px 4px at 150px 100px, white, transparent),
+            background-size: 150px 150px; /* Large pattern size */
+            animation: snowfall 16s linear infinite; /* Large animation size */
+            marigin-left: -50px; /* radnom horizontal offset */
+            opacity: 0.8;
+        }    
+        
         @keyframes snowfall {
             0% { transform: translate3d(0, -100%, 0); } 
             100% { transform: translate3d(0, 100%, 0); } 
@@ -344,7 +371,9 @@
     </style>
 </head>
 <body>
-    <div class="snowfall"></div>
+    <div class="snowfall">
+        <div class="snowfall-layer-3"></div>
+    </div>
     <header>
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
@@ -779,6 +808,7 @@
     </script>
 </body>
 </html>
+
 
 
 
