@@ -297,17 +297,18 @@
             }
         }
         /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
-        .snowfall {
+                .snowfall {
             position: fixed; 
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw; /* Use viewport units for reliability */
+            height: 100vh; /* Use viewport units for reliability */
             pointer-events: none; 
-            z-index: 99999; 
+            z-index: 99999; /* Highest Z-index */
             overflow: hidden;
         }
-
+        
+        /* Layer 1: Faster, smaller flakes (before) */
         .snowfall::before {
             content: "";
             position: absolute;
@@ -317,14 +318,17 @@
             height: 100%;
             background-image: 
                 radial-gradient(1px 1px at 15px 15px, white, transparent),
-                radial-gradient(2px 2px at 30px 45px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 30px 45px, rgba(255, 255, 255, 0.9), transparent),
                 radial-gradient(1px 1px at 60px 5px, white, transparent),
-                radial-gradient(2px 2px at 85px 35px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(2px 2px at 85px 35px, rgba(255, 255, 255, 0.9), transparent);
             background-size: 100px 100px; 
-            animation: snowfall 12s linear infinite;
-            opacity: 0.8;
+            /* Combined vertical fall and horizontal sway animations */
+            animation: snowfall 10s linear infinite, sway 4s ease-in-out infinite alternate;
+            animation-delay: 0s; /* Staggered delay */
+            opacity: 0.9;
         }
-            /* Layer 2: Medium flakes, medium speed, different offset */
+                    
+        /* Layer 2: Slower, larger flakes (after) */
         .snowfall::after {
             content: "";
             position: absolute;
@@ -335,34 +339,26 @@
             background-image: 
                 radial-gradient(2px 2px at 10px 60px, white, transparent),
                 radial-gradient(3px 3px at 75px 20px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(2px 2px at 110px 50px, white, transparent),
-            background-size: 150px 150px; /* medium pattern size*/
-            animation: snowfall 16s linear infinite; /* medium animation size*/
-            margin-left: -50px; /* random horizontal offset to break pattern */
-            opacity: 0.8;
+                radial-gradient(2px 2px at 110px 50px, white, transparent);
+            background-size: 150px 150px; 
+            /* Combined vertical fall and horizontal sway animations */
+            animation: snowfall 16s linear infinite, sway 6s ease-in-out infinite alternate;
+            animation-delay: -9s; /* Start halfway through its cycle to avoid sync */
+            margin-left: -50px; 
+            opacity: 0.6;
         }
-
-        .snowfall-layer-3 { /* new element for 3rd layer*/
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                /* more varied positions and sizes */
-                radial-gradient(3px 3px at 50px 50px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(4px 4px at 150px 100px, white, transparent),
-            background-size: 150px 150px; /* Large pattern size */
-            animation: snowfall 16s linear infinite; /* Large animation size */
-            margin-left: 100px; /* random horizontal offset */
-            opacity: 0.4;
-        }    
         
+        /* Defines the vertical falling motion */     
         @keyframes snowfall {
-            0% { transform: translate3d(0, -100%, 0); } 
-            100% { transform: translate3d(0, 100%, 0); } 
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
         }
-
+        
+        /* Defines the side-to-side wind motion for randomness */
+        @keyframes sway {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -375,9 +371,7 @@
     </style>
 </head>
 <body>
-    <div class="snowfall">
-        <div class="snowfall-layer-3"></div>
-    </div>
+    <div class="snowfall"></div>
     <header>
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
@@ -813,6 +807,7 @@
     </script>
 </body>
 </html>
+
 
 
 
