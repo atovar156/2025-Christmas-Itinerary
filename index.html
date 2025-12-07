@@ -291,19 +291,18 @@
             }
         }
 
-                /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
         .snowfall {
             position: fixed; 
             top: 0;
             left: 0;
-            width: 100vw; 
-            height: 100vh; 
+            width: 100%;
+            height: 100%;
             pointer-events: none; 
-            z-index: 99999; 
+            z-index: 9999; 
             overflow: hidden;
         }
-        
-        /* Single layer using ::before */
+
         .snowfall::before, .snowfall::after {
             content: "";
             position: absolute;
@@ -311,48 +310,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            
-            /* Key to Randomness: Define many dots with random coordinates within a small area */
             background-image: 
-                /* Smallest flakes (1px radius) */
-                radial-gradient(1px 1px at 10% 20%, white, transparent),
-                radial-gradient(1px 1px at 45% 85%, white, transparent),
-                radial-gradient(1px 1px at 70% 5%, white, transparent),
-                radial-gradient(1px 1px at 95% 30%, white, transparent),
-                
-                /* Medium flakes (2px radius) */
-                radial-gradient(2px 2px at 30% 60%, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(2px 2px at 80% 45%, rgba(255, 255, 255, 0.9), transparent),
-                
-                /* Largest flakes (3px radius) */
-                radial-gradient(3px 3px at 5% 90%, rgba(255, 255, 255, 0.7), transparent),
-                radial-gradient(3px 3px at 65% 75%, rgba(255, 255, 255, 0.7), transparent);
-                
-            background-repeat: repeat;
-            /* This pattern size is small, so it repeats many times across the screen, creating density */
+                radial-gradient(4px 4px at 20px 20px, white, transparent),
+                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 80px 10px, white, transparent),
+                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(4px 4px at 150px 80px, white, transparent);
             background-size: 200px 200px; 
-
-            background-attachment: fixed;
-            
-            /* Animation: Only vertical fall, but at a steady pace */
             animation: snowfall 15s linear infinite; 
-           
-            opacity: 0.8;
-            
         }
+
         .snowfall::after {
             margin-left: -50%;
             background-size: 250px 250px;
             opacity: 0.5;
             animation: snowfall 20s linear infinite; 
         }
-        
-        /* Defines the vertical falling motion */     
+
         @keyframes snowfall {
             0% { transform: translate3d(0, -100%, 0); } 
             100% { transform: translate3d(0, 100%, 0); } 
         }
-        
+
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -397,8 +376,7 @@
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
-                        <h4 class="activity-title">Land at CLT 10:30am</h4>
-                        <p class="activity-description"></p>
+                        <h4 class="activity-title"></h4>
                         <p class="activity-description"></p>
                     </div>
                     <div class="activity">
@@ -801,12 +779,5 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
