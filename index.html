@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas In Charlotte | Dec 24 - Jan 4</title>
+    <title>Christmas In Charlotte | Dec 23 - Jan 4</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -14,7 +14,7 @@
         }
         
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Dancing Script', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #fef9f8;
@@ -28,7 +28,7 @@
         }
         
         header {
-            background: linear-gradient(rgba(13, 71, 161, 0.7), rgba(66, 165, 245, 0.75)), url('https://github.com/atovar156/2025-Christmas-Itinerary/blob/main/Igloo.jpg?raw=true');
+            background: linear-gradient(rgba(13, 71, 161, 0.35), rgba(66, 165, 245, 0.40)), url('https://github.com/atovar156/2025-Christmas-Itinerary/blob/main/Igloo.jpg?raw=true');
             background-size: cover;
             background-position: center top; 
             color: white;
@@ -98,8 +98,8 @@
         }
         
         .intro h2 {
-            font-family: 'Playfair Display', serif;
-            color: #95190C;
+            font-family: 'Dancing Script', serif;
+            color: #BD1E1E;
             margin-bottom: 20px;
             font-size: 2.2rem;
         }
@@ -199,25 +199,20 @@
         .special-day {
             border: 2px solid #F44336; 
             position: relative;
-            /* Added padding to make room for the absolute banner */
-            padding-top: 15px;
         }
         
         .special-day::before {
             content: "❤️ Special Day ❤️";
             position: absolute;
-            top: -10px; /* Adjusted slightly to pull it up less */
+            top: 2px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #F44336; 
             color: white;
-            /* Smaller banner settings */
-            padding: 3px 15px; 
-            border-radius: 15px; 
-            font-size: 0.8rem; 
-            
+            padding: 3px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
-            /* High z-index to ensure it sits on top of everything */
             z-index: 10;
         }
         
@@ -278,7 +273,7 @@
             }
             
             .dates {
-                font-size: 1.4rem;
+                font-size: 0.8rem;
             }
             
             .itinerary-container {
@@ -296,7 +291,7 @@
             }
         }
 
-        /* --- SNOWFALL EFFECT CSS (UPDATED FOR RANDOMNESS) --- */
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
         .snowfall {
             position: fixed; 
             top: 0;
@@ -308,8 +303,7 @@
             overflow: hidden;
         }
 
-        /* Layer 1: Small, dense flakes, faster speed, longer duration */
-        .snowfall::before {
+        .snowfall::before, .snowfall::after {
             content: "";
             position: absolute;
             top: 0;
@@ -317,56 +311,25 @@
             width: 100%;
             height: 100%;
             background-image: 
-                /* Added more varied positions and sizes */
-                radial-gradient(1px 1px at 15px 15px, white, transparent),
-                radial-gradient(2px 2px at 30px 45px, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(1px 1px at 60px 5px, white, transparent),
-                radial-gradient(2px 2px at 85px 35px, rgba(255, 255, 255, 0.9), transparent);
-            background-size: 100px 100px; /* Reduced pattern size for density */
-            animation: snowfall 10s linear infinite; /* Faster animation */
-            opacity: 0.8;
+                radial-gradient(4px 4px at 20px 20px, white, transparent),
+                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 80px 10px, white, transparent),
+                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(4px 4px at 150px 80px, white, transparent);
+            background-size: 200px 200px; 
+            animation: snowfall 15s linear infinite; 
         }
 
-        /* Layer 2: Medium flakes, medium speed, different offset */
         .snowfall::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                /* Added more varied positions and sizes */
-                radial-gradient(2px 2px at 10px 60px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(3px 3px at 70px 20px, white, transparent),
-                radial-gradient(2px 2px at 110px 50px, rgba(255, 255, 255, 0.7), transparent);
-            background-size: 150px 150px; /* Medium pattern size */
-            animation: snowfall 15s linear infinite; /* Medium animation speed */
-            margin-left: -50px; /* Random horizontal offset to break pattern */
-            opacity: 0.6;
+            margin-left: -50%;
+            background-size: 250px 250px;
+            opacity: 0.5;
+            animation: snowfall 20s linear infinite; 
         }
 
-        /* Layer 3: Large, sparse flakes, slower speed */
-        .snowfall-layer-3 { 
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                /* Added more varied positions and sizes */
-                radial-gradient(3px 3px at 50px 50px, rgba(255, 255, 255, 0.5), transparent),
-                radial-gradient(4px 4px at 150px 100px, white, transparent);
-            background-size: 250px 250px; /* Large pattern size for sparsity */
-            animation: snowfall 25s linear infinite; /* Slower animation */
-            margin-left: 100px; /* Random horizontal offset */
-            opacity: 0.4;
-        }
-        
         @keyframes snowfall {
-            0% { transform: translateY(-100%); } 
-            100% { transform: translateY(100%); } 
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
         }
 
         @keyframes heartbeat {
@@ -381,19 +344,17 @@
     </style>
 </head>
 <body>
-    <div class="snowfall">
-        <div class="snowfall-layer-3"></div> 
-    </div>
+    <div class="snowfall"></div>
     <header>
         <div class="header-content">
             <h1>Christmas In Charlotte</h1>
-            <p>All I Want for Christmas Is You</p>
+            <p>All I Want for Christmas Isss Youuuuu</p>
             <div class="divider">
-                <span class="heart-divider-red"><i class="fa-regular fa-heart"></i></span> 
-                <span class="heart-divider-green"><i class="fa-regular fa-heart"></i></span> 
-                <span class="heart-divider-red"><i class="fa-regular fa-heart"></i></span> 
+                <span class="heart-divider-red"><i class="fa-solid fa-heart"></i></span> 
+                <span class="heart-divider-green"><i class="fa-solid fa-heart"></i></span> 
+                <span class="heart-divider-red"><i class="fa-solid fa-heart"></i></span> 
             </div>
-            <div class="dates">December 24th, 2025 - January 4th, 2026</div>
+            <div class="dates">December 23rd, 2025 - January 4th, 2026</div>
         </div>
     </header>
     
@@ -404,15 +365,20 @@
             <p>I've planned a special itinerary for our time together, and hopefully we can stick to it.</p>
             <p>Every moment with you is precious, and I can't wait to celebrate the holidays by your side.</p>
             <p>With all my love,</p>
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #95190C; margin-top: 10px;">Always Yours</p>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #BD1E1E; margin-top: 10px;">Always Yours</p>
         </section>
         <div class="itinerary-container" id="itinerary">
-            <div class="day-card special-day">
+            <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 1: Christmas Eve</h3>
+                    <h3>Day 2: Christmas Eve</h3>
                     <div class="date">Wednesday, December 24</div>
                 </div>
                 <div class="day-content">
+                    <div class="activity">
+                        <span class="activity-time">Morning</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
                         <h4 class="activity-title"></h4>
@@ -423,15 +389,12 @@
                         <h4 class="activity-title"></h4>
                         <p class="activity-description"></p>
                     </div>
-                    <div class="romantic-note">
-                        The moment I've been waiting for - seeing your smile in person again after all this time apart.
-                    </div>
                 </div>
             </div>
             
             <div class="day-card special-day">
                 <div class="day-header">
-                    <h3>Day 2: Christmas Day</h3>
+                    <h3>Day 3: Christmas Day</h3>
                     <div class="date">Thursday, December 25</div>
                 </div>
                 <div class="day-content">
@@ -455,7 +418,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 3</h3>
+                    <h3>Day 4</h3>
                     <div class="date">Friday, December 26</div>
                 </div>
                 <div class="day-content">
@@ -482,7 +445,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 4</h3>
+                    <h3>Day 5</h3>
                     <div class="date">Saturday, December 27</div>
                 </div>
                 <div class="day-content">
@@ -506,7 +469,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 5</h3>
+                    <h3>Day 6</h3>
                     <div class="date">Sunday, December 28</div>
                 </div>
                 <div class="day-content">
@@ -530,7 +493,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 6</h3>
+                    <h3>Day 7</h3>
                     <div class="date">Monday, December 29</div>
                 </div>
                 <div class="day-content">
@@ -557,7 +520,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 7</h3>
+                    <h3>Day 8</h3>
                     <div class="date">Tuesday, December 30</div>
                 </div>
                 <div class="day-content">
@@ -581,7 +544,7 @@
 
             <div class="day-card special-day">
                 <div class="day-header">
-                    <h3>Day 8: New Year's Eve</h3>
+                    <h3>Day 9: New Year's Eve</h3>
                     <div class="date">Wednesday, December 31</div>
                 </div>
                 <div class="day-content">
@@ -613,7 +576,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 9: New Year's Day</h3>
+                    <h3>Day 10: New Year's Day</h3>
                     <div class="date">Thursday, January 1</div>
                 </div>
                 <div class="day-content">
@@ -637,7 +600,7 @@
 
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 10</h3>
+                    <h3>Day 11</h3>
                     <div class="date">Friday, January 2</div>
                 </div>
                 <div class="day-content">
@@ -661,7 +624,7 @@
 
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 11</h3>
+                    <h3>Day 12</h3>
                     <div class="date">Saturday, January 3</div>
                 </div>
                 <div class="day-content">
@@ -688,7 +651,7 @@
 
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 12: Farewell</h3>
+                    <h3>Day 13: Farewell</h3>
                     <div class="date">Sunday, January 4</div>
                 </div>
                 <div class="day-content">
@@ -699,6 +662,11 @@
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening</span>
                         <h4 class="activity-title"></h4>
                         <p class="activity-description"></p>
                     </div>
@@ -740,8 +708,8 @@
     <script>
         // COUNTDOWN FIX: Set to next Christmas (2025)
         function updateCountdown() {
-            // Target date is December 24, 2025
-            const tripDate = new Date('December 24, 2025 00:00:00').getTime();
+            // Target date is December 23, 2025
+            const tripDate = new Date('December 23, 2025 00:00:00').getTime();
             const now = new Date().getTime();
             const timeRemaining = tripDate - now;
             
@@ -804,6 +772,13 @@
             observer.observe(card);
         });
         
+        document.querySelectorAll('.heart-divider-red, .heart-divider-green').forEach((heart, index) => {
+            // Note: The animation is now on the span container, not the <i> element
+            heart.style.animation = `heartbeat 1.5s ease infinite ${index * 0.5}s`;
+        });
     </script>
 </body>
 </html>
+
+
+
