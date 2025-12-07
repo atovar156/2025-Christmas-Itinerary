@@ -291,47 +291,68 @@
             }
         }
 
-        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+       /* Alternative: CSS-only enhanced snowfall */
         .snowfall {
-            position: fixed; 
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; 
-            z-index: 9999; 
+            pointer-events: none;
+            z-index: 9999;
             overflow: hidden;
         }
-
-        .snowfall::before, .snowfall::after {
+        
+        .snowfall::before,
+        .snowfall::after,
+        .snowfall::before {
             content: "";
             position: absolute;
-            top: 0;
+            top: -100px;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(4px 4px at 20px 20px, white, transparent),
-                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(3px 3px at 80px 10px, white, transparent),
+            background: 
+                radial-gradient(2px 2px at 10px 20px, white, transparent),
+                radial-gradient(3px 3px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(4px 4px at 80px 10px, white, transparent),
                 radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(4px 4px at 150px 80px, white, transparent);
-            background-size: 200px 200px; 
-            animation: snowfall 15s linear infinite; 
+                radial-gradient(3px 3px at 150px 80px, white, transparent),
+                radial-gradient(2px 2px at 180px 30px, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(4px 4px at 220px 60px, white, transparent),
+                radial-gradient(5px 5px at 260px 20px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 300px 90px, white, transparent),
+                radial-gradient(2px 2px at 350px 40px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(4px 4px at 400px 70px, white, transparent),
+                radial-gradient(5px 5px at 450px 10px, rgba(255, 255, 255, 0.9), transparent);
+            background-size: 500px 500px;
+            animation: snowfallEnhanced 15s linear infinite;
         }
-
+        
         .snowfall::after {
-            margin-left: -50%;
-            background-size: 250px 250px;
+            margin-left: -100px;
+            background-size: 400px 400px;
+            opacity: 0.7;
+            animation: snowfallEnhanced 20s linear infinite;
+            animation-delay: -5s;
+        }
+        
+        .snowfall::before {
+            margin-left: -250px;
+            background-size: 300px 300px;
             opacity: 0.5;
-            animation: snowfall 20s linear infinite; 
+            animation: snowfallEnhanced 25s linear infinite;
+            animation-delay: -10s;
         }
-
-        @keyframes snowfall {
-            0% { transform: translate3d(0, -100%, 0); } 
-            100% { transform: translate3d(0, 100%, 0); } 
+        
+        @keyframes snowfallEnhanced {
+            0% { 
+                transform: translateY(-100px) translateX(0);
+            }
+            100% { 
+                transform: translateY(100vh) translateX(100px);
+            }
         }
-
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -779,4 +800,5 @@
     </script>
 </body>
 </html>
+
 
