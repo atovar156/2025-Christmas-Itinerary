@@ -287,85 +287,58 @@
             
             .countdown-item {
                 min-width: 60px;
-        
+                padding: 10px;
+            }
+        }
+
+        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
+        .snowfall {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 9999; 
+            overflow: hidden;
+        }
+
+        .snowfall::before, .snowfall::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(4px 4px at 20px 20px, white, transparent),
+                radial-gradient(6px 6px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(3px 3px at 80px 10px, white, transparent),
+                radial-gradient(5px 5px at 120px 40px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(4px 4px at 150px 80px, white, transparent);
+            background-size: 200px 200px; 
+            animation: snowfall 15s linear infinite; 
+        }
+
+        .snowfall::after {
+            margin-left: -50%;
+            background-size: 250px 250px;
+            opacity: 0.5;
+            animation: snowfall 20s linear infinite; 
+        }
+
+        @keyframes snowfall {
+            0% { transform: translate3d(0, -100%, 0); } 
+            100% { transform: translate3d(0, 100%, 0); } 
+        }
+
+        @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
             10% { transform: scale(1); }
             15% { transform: scale(1.1); }
             20% { transform: scale(1); }
-            100% { transform: scale(1        padding: 10px;
-            }
-        }
-        /* --- SNOWFALL EFFECT CSS (OUTSIDE @media QUERY FOR DESKTOP VISIBILITY) --- */
-                .snowfall {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100vw; /* Use viewport units for reliability */
-            height: 100vh; /* Use viewport units for reliability */
-            pointer-events: none; 
-            z-index: 99999; /* Highest Z-index */
-            overflow: hidden;
-        }
-        
-        /* Layer 1: Faster, smaller flakes (before) */
-        .snowfall::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(1px 1px at 15px 15px, white, transparent),
-                radial-gradient(2px 2px at 30px 45px, rgba(255, 255, 255, 0.9), transparent),
-                radial-gradient(1px 1px at 60px 5px, white, transparent),
-                radial-gradient(2px 2px at 85px 35px, rgba(255, 255, 255, 0.9), transparent);
-            background-size: 100px 100px; 
-            /* Combined vertical fall and horizontal sway animations */
-            animation: snowfall 10s linear infinite, sway 4s ease-in-out infinite alternate;
-            animation-delay: 0s; /* Staggered delay */
-            opacity: 0.9;
-        }
-                    
-        /* Layer 2: Slower, larger flakes (after) */
-        .snowfall::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 10px 60px, white, transparent),
-                radial-gradient(3px 3px at 75px 20px, rgba(255, 255, 255, 0.8), transparent),
-                radial-gradient(2px 2px at 110px 50px, white, transparent);
-            background-size: 150px 150px; 
-            /* Combined vertical fall and horizontal sway animations */
-            animation: snowfall 16s linear infinite, sway 6s ease-in-out infinite alternate;
-            animation-delay: -9s; /* Start halfway through its cycle to avoid sync */
-            margin-left: -50px; 
-            opacity: 0.6;
-        }
-        
-        /* Defines the vertical falling motion */     
-        @keyframes snowfall {
-            0% { transform: translate3d(0, -100%, 0); } 
-            100% { transform: translate3d(0, 100%, 0); } 
-        }
-        
-        /* Defines the side-to-side wind motion for randomness */
-        @keyframes sway {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50px); }
-        }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            5% { transform: scale(1.1); }
-            10% { transform: scale(1); }
-            15% { transform: scale(1.1); }
-            20% { transform: scale(1); }
-            100% { transform: scale(1); }
+            100% { transform: scale(1); }
         }
         
     </style>
@@ -403,9 +376,8 @@
                 <div class="day-content">
                     <div class="activity">
                         <span class="activity-time">Morning</span>
-                        <h4 class="activity-title">Land at CLT: 10:30am</h4>
-                        <p class="activity-description">Wait for pick up</p>
-                        <p class="activity-description">Get some food</p>
+                        <h4 class="activity-title"></h4>
+                        <p class="activity-description"></p>
                     </div>
                     <div class="activity">
                         <span class="activity-time">Afternoon</span>
@@ -446,7 +418,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day 3/h3>
+                    <h3>Day 3</h3>
                     <div class="date">Friday, December 26</div>
                 </div>
                 <div class="day-content">
@@ -521,7 +493,7 @@
             
             <div class="day-card">
                 <div class="day-header">
-                    <h3>Day6</h3>
+                    <h3>Day 6</h3>
                     <div class="date">Monday, December 29</div>
                 </div>
                 <div class="day-content">
@@ -807,13 +779,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
