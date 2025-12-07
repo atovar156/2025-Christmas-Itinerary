@@ -312,7 +312,7 @@
             width: 100%;
             height: 100%;
             
-            /* 🌨️ Key to Randomness: Define many dots with random coordinates within a small area */
+            /* Key to Randomness: Define many dots with random coordinates within a small area */
             background-image: 
                 /* Smallest flakes (1px radius) */
                 radial-gradient(1px 1px at 10% 20%, white, transparent),
@@ -331,6 +331,8 @@
             background-repeat: repeat;
             /* This pattern size is small, so it repeats many times across the screen, creating density */
             background-size: 200px 200px; 
+
+            background-attachment: fixed;
             
             /* Animation: Only vertical fall, but at a steady pace */
             animation: snowfall 18s linear infinite; 
@@ -792,6 +794,7 @@
     </script>
 </body>
 </html>
+
 
 
 
