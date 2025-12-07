@@ -330,7 +330,7 @@
                 
             background-repeat: repeat;
             /* This pattern size is small, so it repeats many times across the screen, creating density */
-            background-size: 100px 100px; 
+            background-size: 200px 200px; 
             
             /* Animation: Only vertical fall, but at a steady pace */
             animation: snowfall 18s linear infinite; 
@@ -340,9 +340,9 @@
         /* Defines the vertical falling motion */     
         @keyframes snowfall {
             /* Start the background pattern 100vh above the viewport */
-            0% { background-position: 0 -100vh; } 
+            0% { background-position: 0 0; } 
             /* Move the background pattern 100vh down, covering the viewport */
-            100% { background-position: 0 100vh; }
+            100% { background-position: 0 2000vh; }
         }
         @keyframes heartbeat {
             0% { transform: scale(1); }
@@ -792,6 +792,7 @@
     </script>
 </body>
 </html>
+
 
 
 
